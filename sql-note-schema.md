@@ -1,4 +1,4 @@
-# SQL Note Schema
+# SQL Schema
 ### CREATE DATABASE
 
 ```sql

@@ -1,25 +1,4 @@
 # SQL Note Commands
-Table of Contents
-=================
-
-   * [SQL Note Commands](#sql-note-commands)
-      * [SQL Basic](#sql-basic)
-         * [SELECT](#select)
-         * [INSERT INTO](#insert-into)
-         * [UPDATE](#update)
-         * [DELETE](#delete)
-         * [SQL Injection](#sql-injection)
-         * [SELECT TOP](#select-top)
-         * [LIKE Operator](#like-operator)
-         * [IN Operator](#in-operator)
-         * [Between Operator](#between-operator)
-         * [SQL Aliases](#sql-aliases)
-      * [SQL Advanced](#sql-advanced)
-         * [SQL Joins](#sql-joins)
-         * [SQL UNION Operator](#sql-union-operator)
-         * [SELECT INTO](#select-into)
-         * [INSERT INTO SELECT](#insert-into-select)
-
 
 ## SQL Basic
 [SQL](http://www.w3schools.com/sql/default.asp) stands for Structured Query Language<br>
@@ -78,7 +57,7 @@ ORDER BY Country ASC, CustomerName DESC;
 
 
 ### INSERT INTO
-```
+```sql
 INSERT INTO table_name
 VALUES (value1,value2,value3,...);
 
@@ -88,7 +67,7 @@ VALUES (value1,value2,value3,...);
 
 
 ### UPDATE
-```
+```sql
 # care for where, if omitted, all the records will be updated
 UPDATE table_name
 SET column1=value1,column2=value2,...
@@ -100,7 +79,7 @@ WHERE CustomerName='Alfreds Futterkiste';
 ```
 
 ### DELETE
-```
+```sql
 DELETE FROM table_name
 WHERE some_column=some_value;
 
@@ -110,31 +89,10 @@ or
 DELETE * FROM table_name;
 ```
 
-### SQL Injection
-SQL injection is a technique where malicious users can inject SQL commands into an SQL statement, via web page input.
-Injected SQL commands can alter SQL statement and compromise the security of a web application.
-The only proven way to protect a web site from SQL injection attacks, is to use SQL parameters.
-SQL parameters are values that are added to an SQL query at execution time, in a controlled manner.
-by @number
-
-```
-txtNam = getRequestString("CustomerName");
-txtAdd = getRequestString("Address");
-txtCit = getRequestString("City");
-txtSQL = "INSERT INTO Customers (CustomerName,Address,City) Values(@0,@1,@2)";
-db.Execute(txtSQL,txtNam,txtAdd,txtCit);
-```
-
 ###  SELECT TOP
-```
+
+```sql
 # specify the number of records to return, very useful on large tables with thousands of records. 
-# MS Sql
-SELECT TOP number|percent column_name(s)
-FROM table_name;
-
-SELECT TOP 50 PERCENT * FROM Customers;
-
-# MySql
 SELECT column_name(s)
 FROM table_name
 LIMIT number;
@@ -145,7 +103,7 @@ LIMIT 5;
 ```
 
 ### LIKE Operator
-```
+```sql
 # used in a WHERE clause to search for a specified pattern in a column
 SELECT column_name(s)
 FROM table_name
@@ -165,10 +123,8 @@ WHERE City LIKE '[bsp]%';
                 '[!bsp]%'                                         
 ```
 
-![](media/14874071879966.jpg)
-
 ### IN Operator
-```
+```sql
 # specify multiple values in a WHERE clause.
 SELECT column_name(s)
 FROM table_name
@@ -179,7 +135,7 @@ WHERE City IN ('Paris','London');
 ```
 
 ### Between Operator
-```
+```sql
 #  select values within a range, values can be numbers, text, or dates.
 SELECT column_name(s)
 FROM table_name
@@ -204,7 +160,7 @@ Give a database table, or a column in a table, a temporary name more readable. A
 * Column names are big or not very readable
 * Two or more columns are combined together
 
-```
+```sql
 SELECT column_name AS alias_name
 FROM table_name;
 
@@ -228,7 +184,7 @@ SQL joins are used to combine rows from two or more tables, based on a common fi
 * RIGHT JOIN: Return all rows from the right table, and the matched rows from the left table
 * FULL JOIN: Return all rows when there is a match in ONE of the table
 
-```
+```sql
 # INNER JOIN
 SELECT column_name(s)
 FROM table1
@@ -261,13 +217,12 @@ SELECT * FROM t1
 RIGHT JOIN t2 ON t1.id = t2.id
 ```
 
-![](media/14874079308318.jpg)
 
 
 ### SQL UNION Operator
 The SQL UNION operator combines the result of two or more SELECT statements have the same number of columns. The columns must also have similar data types.
 
-```
+```sql
 #  columns in each SELECT statement must be in the same order.
 SELECT column_name(s) FROM table1
 UNION
@@ -280,7 +235,7 @@ SELECT column_name(s) FROM table2;
 ```
 
 ### SELECT INTO
-```
+```sql
 # copy all columns into the new table:
 SELECT *
 INTO newtable [IN externaldb]
@@ -308,7 +263,7 @@ ON Customers.CustomerID=Orders.CustomerID;
 ```
 
 ### INSERT INTO SELECT
-```
+```sql
 # copy all columns from one table to another, existing table
 INSERT INTO table2
 SELECT * FROM table1;

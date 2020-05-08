@@ -1,24 +1,7 @@
 # SQL Note functions
-Table of Contents
-=================
-
- * [SQL Note functions](#sql-note-functions)
-       * [GROUP BY](#group-by)
-       * [HAVING](#having)
-
-SQL has many built-in functions for performing calculations on data.
-
-SQL Aggregate Functions:<br>
-![](media/14874148081967.jpg)
-
-SQL String Functions:<br>
-![](media/14874148261908.jpg)
-
-SQL Date and Time Data Types and Functions:<br>
-![](media/14874148362950.jpg)
 
 ### GROUP BY
-```
+```sql
 SELECT column_name, aggregate_function(column_name)
 FROM table_name
 WHERE column_name operator value
@@ -42,7 +25,7 @@ GROUP BY ShipperName,LastName;
 ### HAVING
 The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
 
-```
+```sql
 
 SELECT column_name, aggregate_function(column_name)
 FROM table_name

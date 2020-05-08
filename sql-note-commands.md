@@ -1,4 +1,4 @@
-# SQL Note Commands
+# SQL Commands
 
 ## SQL Basic
 [SQL](http://www.w3schools.com/sql/default.asp) stands for Structured Query Language<br>

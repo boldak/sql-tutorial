@@ -1,31 +1,12 @@
 # SQL Note Schema
-Table of Contents
-=================
-
-* [SQL Note Schema](#sql-note-schema)
- * [CREATE DATABASE](#create-database)
- * [CREATE TABLE](#create-table)
- * [SQL Constraints](#sql-constraints)
-    * [NOT NULL](#not-null)
- * [UNIQUE](#unique)
-    * [PRIMARY KEY](#primary-key)
-    * [FOREIGN KEY](#foreign-key)
-    * [CHECK Constraint](#check-constraint)
-    * [DEFAULT](#default)
- * [CREATE INDEX](#create-index)
- * [DROP](#drop)
- * [ALTER](#alter)
- * [Auto-increment](#auto-increment)
- * [View](#view)
- * [SQL Comments](#sql-comments)
-
 ### CREATE DATABASE
-```
+
+```sql
 CREATE DATABASE dbname;
 ```
 
 ### CREATE TABLE
-```
+```sql
 CREATE TABLE table_name
 (
   column_name1 data_type(size),
@@ -51,7 +32,7 @@ SQL constraints are used to specify rules for the data in a table.
 If there is any violation between the constraint and the data action, the action is aborted by the constraint.
 Constraints can be specified when the table is created (inside the CREATE TABLE statement) or after the table is created (inside the ALTER TABLE statement).
 
-```
+```sql
 CREATE TABLE table_name
 (
   column_name1 data_type(size) constraint_name,
@@ -61,10 +42,9 @@ CREATE TABLE table_name
 );
 ```
 
-![](media/14874121827497.jpg)
 
 #### NOT NULL
-```
+```sql
 # The NOT NULL constraint enforces a column to NOT accept NULL values.
 CREATE TABLE PersonsNotNull
 (
@@ -81,7 +61,7 @@ The UNIQUE and PRIMARY KEY constraints both provide a guarantee for uniqueness f
 A PRIMARY KEY constraint automatically has a UNIQUE constraint defined on it.
 Note that you can have many UNIQUE constraints per table, but only one PRIMARY KEY constraint per table.
 
-```
+```sql
 CREATE TABLE Persons
 (
 	P_Id int NOT NULL,
@@ -121,7 +101,7 @@ Primary keys must contain UNIQUE values.
 A primary key column cannot contain NULL values.
 Most tables should have a primary key, and each table can have only ONE primary key.
 
-```
+```sql
 CREATE TABLE Persons
 (
 	P_Id int NOT NULL,
@@ -163,7 +143,7 @@ A FOREIGN KEY in one table points to a PRIMARY KEY in another table.
 The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.
 The FOREIGN KEY constraint also prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the table it points to.
 
-```
+```sql
 CREATE TABLE Orders
 (
 	O_Id int NOT NULL,
@@ -204,7 +184,7 @@ The CHECK constraint is used to limit the value range that can be placed in a co
 If you define a CHECK constraint on a single column it allows only certain values for this column.
 If you define a CHECK constraint on a table it can limit the values in certain columns based on values in other columns in the row.
 
-```
+```sql
 CREATE TABLE Persons
 (
 	P_Id int NOT NULL,
@@ -242,7 +222,7 @@ DROP CHECK chk_Person
 The DEFAULT constraint is used to insert a default value into a column.
 The default value will be added to all new records, if no other value is specified.
 
-```
+```sql
 CREATE TABLE Persons
 (
 	P_Id int NOT NULL,
@@ -274,7 +254,7 @@ Indexes allow the database application to find data fast; without reading the wh
 An index can be created in a table to find data more quickly and efficiently.
 The users cannot see the indexes, they are just used to speed up searches/queries.
 
-```
+```sql
 CREATE INDEX index_name
 ON table_name (column_name)
 
@@ -289,7 +269,7 @@ ON Persons (LastName, FirstName)
 ```
 
 ### DROP
-```
+```sql
 ALTER TABLE table_name DROP INDEX index_name
 
 DROP TABLE table_name
@@ -301,7 +281,7 @@ TRUNCATE TABLE table_name
 ```
 
 ### ALTER
-```
+```sql
 ALTER TABLE table_name
 ADD column_name datatype
 
@@ -319,7 +299,7 @@ DROP COLUMN DateOfBirth
 ```
 
 ### Auto-increment
-```
+```sql
 CREATE TABLE Persons
 (
 	ID int NOT NULL AUTO_INCREMENT,
@@ -339,7 +319,7 @@ In SQL, a view is a virtual table based on the result-set of an SQL statement.
 A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
 You can add SQL functions, WHERE, and JOIN statements to a view and present the data as if the data were coming from one single table.
 
-```
+```sql
 CREATE VIEW view_name AS
 SELECT column_name(s)
 FROM table_name
@@ -380,7 +360,7 @@ DROP VIEW view_name
 ```
 
 ### SQL Comments
-```
+```sql
 --Select all:
 SELECT * FROM Customers;
 

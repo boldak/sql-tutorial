@@ -42,7 +42,7 @@ Tables contain records (rows) with data. **One row is one record.**
 * DROP INDEX - deletes an index
 
 ### SELECT
-```
+```sql
 SELECT column_name,column_name
 FROM table_name;
 

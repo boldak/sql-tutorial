@@ -1,4 +1,4 @@
-# SQL Functions
+# SQL Aggregations
 
 ### GROUP BY
 ```sql

@@ -1,4 +1,4 @@
-# SQL Schema
+# DDL Commands
 ### CREATE DATABASE
 
 ```sql
